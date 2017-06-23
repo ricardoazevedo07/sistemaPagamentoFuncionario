@@ -1,0 +1,67 @@
+Crie uma aplicação para simular um Sistema de Folha de Pagamento. O seu sistema deverá permitir executar
+as quatro operações básicas de banco de dados (Incluir registro, Excluir Registro, Consultar Registro e
+Editar Registro), além de imprimir e ordenar os registros. Todas as informações deverão ser armazenadas
+em um vetor.
+Defina um novo tipo na linguagem para representar um funcionário. Todo funcionário possui um nome,
+matrícula, data de nascimento e salário bruto. Considere e garanta que não existem dois funcionários com
+mesmo número de matrícula (chave primária).
+A sua aplicação deverá apresentar um menu inicial com as seguintes opções:
+1. Incluir Funcionário
+2. Excluir Funcionário
+3. Consultar Funcionário
+4. Processar Aumento
+5. Ordenar Registos
+a. Por nome
+b. Por. matricula
+6. Imprimir registros
+Os requisitos funcionais da sua aplicação são:
+• A opção 1 deverá solicitar os dados de um funcionário para inclusão. Caso o funcionário já esteja
+cadastrado, o seu programa deverá emitir uma mensagem de erro e não incluir o registro do
+funcionário. Outro motivo que pode causar uma falha na inclusão do registro é informar um salário
+negativo ou omitir algum dado. Considere que todos os campos são obrigatórios.
+• A opção 2 exclui um registro do vetor. O usuário deverá informar a matricula do funcionário a ser
+excluído. Caso não exista a matrícula solicitada, o programa deverá emitir uma mensagem de erro.
+Caso o funcionário seja excluído do vetor, providencie a realocação dos elementos do vetor de forma
+a evitar posições intermediárias vazias “buracos” no vetor.
+• A opção 3 permite consultar todos os dados de um funcionário já cadastrado. Para a consulta o
+usuário deverá informar a matrícula do funcionário. Caso o funcionário não esteja cadastrado, o
+programa deverá emitir uma mensagem de erro, caso contrário, o programa deverá apresentar todos
+os dados do funcionário. Os dados do funcionário incluem os dados cadastrados (nome, matrícula,
+data de nascimento e salário bruto) e os dados calculados, que são: contribuição ao INSS, Imposto de
+Renda Retido na Fonte e o Salário Líquido.
+• A opção 4 permite realizar um aumento para todos os funcionários. O programa deverá solicitar ao
+usuário o percentual de aumento e ajustar o salário bruto de todos os funcionários baseado no
+percentual.
+• A opção 5 ordena os elementos do vetor por ordem alfabética de nome ou por matrícula.
+• A opção 6 lista todas as informações do funcionário, isto é, as mesmas da consulta individual na
+opção 3.
+Requisitos não funcionais:
+O cálculo do imposto de renda, INSS, ordenamento e impressão do vetor deve ser feito através de funções criadas com
+estas finalidades.INSS
+Tabela INSS 2017 para Segurado Empregado, Empregado Doméstico e Trabalhador Avulso
+SALÁRIO-DE-CONTRIBUIÇÃO (R$) ALÍQUOTA PARA FINS DE RECOLHIMENTO AO INSS
+até 1.659,38 8%
+de 1.659,39 até 2.765,66 9%
+de 2.765,67 até 5.531,31 11%
+* Salário de Contribuição = Salário Bruto
+IRPF
+O cálculo do imposto de renda a ser retido na fonte a partir de 01.01.2017, é calculado mediante a utilização
+da seguinte tabela progressiva mensal:
+Base de Cálculo (R$)
+Alíquota (%)
+Até 1.903,98
+De 1.903,99 até 2.826,65
+7,5
+De 2.826,66 até 3.751,05
+15
+De 3.751,06 até 4.664,68
+22,5
+Acima de 4.664,68
+27,5
+Parcela a Deduzir do IR (R$)
+142,80
+354,80
+636,13
+869,36
+* Base de Cálculo: Salário Bruto – Contribuição INSS
+Salário líquido = Salário Bruto – INSS – IRPF
