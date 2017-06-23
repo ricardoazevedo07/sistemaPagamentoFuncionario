@@ -10,6 +10,7 @@
 
 
 
+
 #include "stdio.h"
 #include "stdlib.h"
 #include <unistd.h>
@@ -65,7 +66,7 @@ void funcionarioInput(){
   limpaTela();
 
      while(((sn == 's')||(sn == 'S')) && (contFunc < VETOR)){
-       i++;
+
       printf("* OPÇÃO INSERIR FUNCIONARIO *\n\n");
 
       printf("Informe o nome do funcionario ");
@@ -88,6 +89,7 @@ void funcionarioInput(){
         scanf("%s",&sn);
         limpaTela();
         contFunc++;
+        i++;
      }
 
     if(contFunc < VETOR){
@@ -113,7 +115,7 @@ void funcionarioPrint(){
       printf("\nNome do funcionario: %s",funcionario[i].nome);
       printf("\nMatricula de numero: %i",funcionario[i].matricula);
       printf("\nData de nascimento: %i/%i/%i",dataNasc.dia,dataNasc.mes,dataNasc.ano);
-      printf("\nSalario em R$: %2.2f",funcionario[i].salario);
+      printf("\nSalario em R$: %2.3f",funcionario[i].salario);
    }
  }
 void subMenu(){
@@ -135,9 +137,11 @@ void subMenu(){
      switch (opcao) {
          case 1:
          printf ("\n\nopcao [%i]",opcao);
+         menu();
          break;
          case 2:
          printf ("\n\nopcao [%i] \n",opcao);
+         menu();
          break;
          case 0:
          limpaTela();
@@ -169,19 +173,22 @@ void menu(){
      scanf("%d",&opcao);
 
     switch (opcao) {
-      limpaTela();
+      //limpaTela();
          case 1:
          printf ("\n\nopcao: [%i] \n",opcao);
          funcionarioInput();
          break;
          case 2:
          printf ("\n\nopcao: [%i] \n",opcao);
+         menu();
          break;
          case 3:
          printf ("\n\nopcao: [%i] \n",opcao);
+         menu();
          break;
          case 4:
          printf ("\n\nopcao: [%i] \n",opcao);
+         menu();
          break;
          case 5:
          printf ("opcao %i",opcao);
