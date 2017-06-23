@@ -12,8 +12,9 @@
 
 #include "stdio.h"
 #include "stdlib.h"
+#include <unistd.h>
 
-#define VETOR 3 //vetor de funcionarios
+#define VETOR 1 //vetor de funcionarios
 #define TNOME 30 //tam do nome
 #define TDNAS 50 // tamanho data de nascimento
 
@@ -34,9 +35,9 @@
 //=================================== VARIAVEIS
 
 int opcao; //var opcao  do menu()
-char sn = 'n';  // variavel de decisao de add outro funcionario =]
-int contFunc = -1;
-int i = -1;
+char sn = 's';  // variavel de decisao de add outro funcionario =]
+int contFunc = 0;
+int i = 0;
 //======================================== DEFINIÇÃO DE ESTRUTURAS
 typedef struct {
 int matricula;
@@ -62,47 +63,39 @@ void limpaTela(){ // func limpa tela e limpa o buffer numa unica tacada
 
 void funcionarioInput(){
   limpaTela();
-  do {
-    i++;
 
-      //for (int i = 0; i < VETOR; i++) { // pode ser feito sem o laco for() por estar numa funcao.
+     while(((sn == 's')||(sn == 'S')) && (contFunc < VETOR)){
+       i++;
+      printf("* OPÇÃO INSERIR FUNCIONARIO *\n\n");
 
+      printf("Informe o nome do funcionario ");
+      scanf(" %[^\n]s",&funcionario[i].nome);
 
-     printf("* OPÇÃO INSERIR FUNCIONARIO *\n\n");
+      printf("Informe a matricula do funcionario: ");
+      scanf("%i",&funcionario[i].matricula);
 
-     printf("Informe o nome do funcionario ");
-     scanf(" %[^\n]s",&funcionario[i].nome);
+      printf("Informe o [dia] do nascimento: ");
+      scanf("%i",&dataNasc.dia);
+      printf("Informe o [mes] do nascimento: ");
+      scanf("%i",&dataNasc.mes);
+      printf("Informe o [ano] do nascimento: ");
+      scanf("%i",&dataNasc.ano);
 
-     printf("Informe a matricula do funcionario: ");
-     scanf("%i",&funcionario[i].matricula);
+      printf("Informe o salario do funcionario: ");
+      scanf(" %f",&funcionario[i].salario);
 
-     printf("Informe o [dia] do nascimento: ");
-     scanf("%i",&dataNasc.dia);
-     printf("Informe o [mes] do nascimento: ");
-     scanf("%i",&dataNasc.mes);
-     printf("Informe o [ano] do nascimento: ");
-     scanf("%i",&dataNasc.ano);
-
-     printf("Informe o salario do funcionario: ");
-     scanf(" %f",&funcionario[i].salario);
-
-
-      //}
-      // retirar comentario caso queira add e imprimir o funcionario add
-      /* for (int i = 0; i < VETOR; i++) { // pode ser feito sem o laco for() por estar numa funcao.
-          printf("Nome do funcionario: %s\n",funcionario[i].nome);
-          printf("Matricula de numero: %i\n",funcionario[i].matricula);
-          printf("Data de nascimento: %i/%i/%i\n",dataNasc.dia,dataNasc.mes,dataNasc.ano);
-          printf("Salario em R$: %2.2f",funcionario[i].salario);
-       }*/
-       printf("\n\n\n\nDeseja inserir outro funcionario? [S/n]\n"); // default [S]
-       scanf("%s",&sn);
-       limpaTela();
-       contFunc++;
-    } while(((sn == 's')||(sn == 'S')) && (contFunc < VETOR));
+        printf("\n\n\n\nDeseja inserir outro funcionario? [S/n]\n"); // default [S]
+        scanf("%s",&sn);
+        limpaTela();
+        contFunc++;
+     }
 
     if(contFunc < VETOR){
+        limpaTela();
+          sleep(3);
       printf("\n\n@ Numero de funcionarios preenhidos @\n\n");
+      //scanf("%*c");
+
     }
 
 
@@ -110,6 +103,7 @@ void funcionarioInput(){
     menu();
 }
 void funcionarioPrint(){
+    limpaTela();
   printf("Total de registros: [%i]",VETOR);
 
    for (i = 0; i < VETOR; i++){
@@ -154,6 +148,7 @@ void subMenu(){
      }
 
 void menu(){
+    limpaTela();
 
 
      //**** menu
