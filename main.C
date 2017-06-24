@@ -16,6 +16,9 @@ revisao
 5b- Ordenar funcionario p.matricula( )
 6 - Imprimir registros             (x)
 
+bugs = ao imprimir registros nao volta ao menu
+
+
 
 */
 #include "power.h" // File with the functions
