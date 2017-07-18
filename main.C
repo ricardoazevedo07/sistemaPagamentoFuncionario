@@ -1,5 +1,6 @@
 /*
 Mathoian Santos https://github.com/mathoian
+ricardo passou por aqui ;)
 
 programa: controle de pagamento
 Assunto:CONTROLE DE ESTOQUE
